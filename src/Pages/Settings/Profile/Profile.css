@@ -6,7 +6,8 @@
 .header h3{
     text-align: left;
     font-weight: 500;
-    padding: 20px
+    padding: 20px;
+    color: #191d6c;
 }
 
 .welcome-divider{
@@ -91,7 +92,7 @@
     margin-left: 10px;
 }
 
-input[type=file]{
+.file{
     display: none;
 }
 
@@ -175,16 +176,14 @@ input[type=file]{
     display: flex;
 }
 
-.submit-btn{
+.pro-submit-btn{
     width: 190px;
     height: 54px;
-    flex-grow: 0;
     padding: 15px 68.5px 16px;
     color: rgba(7, 10, 74, 0.7);
     font-size: 16px;
     border-radius: 6px;
     background-color: rgba(3, 6, 64, 0.2);
-    outline: none;
     border: none;
     cursor: pointer;
     font-weight: 600;

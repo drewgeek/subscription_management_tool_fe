@@ -37,6 +37,7 @@ function Signup({details,signupdetails,signup}){
     const[countryval,setCountryval]=useState("")
     const[loading, setLoading]=useState(true)
     const[popup,setPopup]=useState({display:"none"})
+    const[popupInfo,setPopupInfo]=useState({display:"none"})
     const history=useHistory()
 
     
@@ -103,7 +104,36 @@ function Signup({details,signupdetails,signup}){
             setPasswordWrap({marginBottom:"5px"})
         }
         var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-if(passval.match(decimal))
+        
+// if(passval.match(decimal))
+// {
+  
+
+//         console.log(details)
+//         //console.log(signup)
+        
+//         const params={
+//              firstName:details.firstName,
+//             lastName:details.lastName,
+//        email:details.email,
+//         password:details.password,
+//             country:details.country
+           
+//         }
+//         console.log(params)
+        
+       //fetch("https://subscription-management-tool.herokuapp.com/register",
+      //{method: 'POST',
+  //body:JSON.stringify(params)})
+  
+       //.then((resp) => {console.log(resp)})
+      
+      // .catch((err)=>{
+          // console.log(err)
+       //})
+
+        if((emailval!="")&&(passval!="")&&(countryval!="")&&(first!="")&&(second!="")){
+            if(passval.match(decimal))
 {
   
 
@@ -119,18 +149,6 @@ if(passval.match(decimal))
            
         }
         console.log(params)
-        
-       //fetch("https://subscription-management-tool.herokuapp.com/register",
-      //{method: 'POST',
-  //body:JSON.stringify(params)})
-  
-       //.then((resp) => {console.log(resp)})
-      
-      // .catch((err)=>{
-          // console.log(err)
-       //})
-
-        if((emailval!="")&&(passval!="")&&(countryval!="")&&(first!="")&&(second!="")){
 
             setButnstyle({backgroundColor:"grey"})
             // setLogtext({color:"rgba(3,64,6,20%)"})
@@ -193,7 +211,10 @@ if(passval.match(decimal))
     }
 
     }
-
+    else{
+        setPopupInfo({display:"flex"})
+    }
+    
 
 
        
@@ -258,13 +279,17 @@ if(passval.match(decimal))
         <div className="signup-total" >
             
             <div className="signup" >
-            <div className="cover-check" style={popup}>
+            {/* <div className="cover-check" style={popup}> */}
+            <div  style={popupInfo} className="check-issue">
+                    <div className="cancel-confirm-signup" onClick={(()=>{setPopupInfo({display:"none"}) }) } ><Cancel/></div>
+                        <p>Incomplete information.</p>
+                    </div>
             
-                    <div className="check-text">
+                    <div  style={popup} className="check-issue">
                     <div className="cancel-confirm-signup" onClick={(()=>{history.push("/signin") }) } ><Cancel/></div>
                         <p>Account created successfully.</p>
                     </div>
-                </div>
+                {/* </div> */}
 
                 <div style={issuePop} className="check-issue">
                     <div className="cancel-confirm-signup" onClick={(()=>{setIssuePop({display:"none"}) }) } ><Cancel/></div>
@@ -382,13 +407,15 @@ if(passval.match(decimal))
 
             <div className="signup-mobile">
 
-            <div className="cover-check" style={popup}>
+            <div  style={popupInfo} className="check-issue">
+                    <div className="cancel-confirm-signup" onClick={(()=>{setPopupInfo({display:"none"}) }) } ><Cancel/></div>
+                        <p>Incomplete information.</p>
+                    </div>
             
-            <div className="check-text">
-            <div className="cancel-confirm-signup" onClick={(()=>{history.push("/signin") }) } ><Cancel/></div>
-                <p>Account created successfully.</p>
-            </div>
-        </div>
+                    <div  style={popup} className="check-issue">
+                    <div className="cancel-confirm-signup" onClick={(()=>{history.push("/signin") }) } ><Cancel/></div>
+                        <p>Account created successfully.</p>
+                    </div>
 
         <div style={issuePop} className="check-issue">
             <div className="cancel-confirm-signup" onClick={(()=>{setIssuePop({display:"none"}) }) } ><Cancel/></div>

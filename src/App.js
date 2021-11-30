@@ -16,13 +16,12 @@ import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
 import Addsub from  './Pages/Addsub/Addsub';
 import Blog from  './Pages/Blog/Blog'
-
 import Delete from './Pages/Delete/Delete'
-
 import Profile from './Pages/Settings/Profile/Profile';
 import Notifications from './Pages/Settings/Notifications/Notifications'
 import Application from './Pages/Settings/Application/Application';
 import Payments from './Pages/Settings/Payments/Payments';
+import payment from './Pages/Payment/payment';
 //import Passwordreset from './Pages/Passwordreset/Passwordreset'
 
 import Signincontinue from './Pages/Sigincontinue/Signincontinue'
@@ -36,7 +35,9 @@ import Paymentsuccess from './Pages/Paymentsuccess/Paymentsuccess';
 import Passwordreset from './Pages/Passwordreset/Passwordreset';
 import Resetpassword from './Pages/Resetpassword/Resetpassword';
 import Passwordconfirmation from './Pages/Passwordconfirmation/Passwordconfirmation'
+import Frequent from './Pages/Support/Frequent/Frequent'
 import Autochange from './Pages/Autochange/Autochange';
+
 import './App.css';
 
 function App() {
@@ -77,6 +78,8 @@ function App() {
      <Route exact path="/settings/notifications" component={Notifications}/>
      <Route exact path="/settings/application" component={Application}/>
      <Route exact path="/settings/payments" component={Payments}/>
+     <Route exact path="/support/faq" component={Frequent}/>
+     <Route exact path="/payment/funding-history" component={payment}/>
     </Switch>
     </div>
   );

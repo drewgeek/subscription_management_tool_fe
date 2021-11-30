@@ -49,3 +49,8 @@ export const customerdetails=(value)=>({
     type:'customerdetails',
    value:value
 })
+
+export const updatedetails=(value)=>({
+    type:'updatedetails',
+   value:value
+})

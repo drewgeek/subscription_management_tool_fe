@@ -97,7 +97,11 @@ return(
        </div>
        </div>
        <div className="mobile-dash-lower">
-       <div className="profile-avatar"><FaUserAlt/></div>
+       {/* <div className="profile-avatar">{customerDetail.photo!=""? ( */}
+       
+       <div className="profile-avatar">{customerDetail.photo!=""? (<img src={customerDetail.photo}/>):(<FaUserAlt />)}</div>
+       {/* )}</div> */}
+       {/* <div className="profile-avatar"><FaUserAlt/></div> */}
        <p>Hi,{ customerDetail.firstName}</p>
        </div>
        <div style={rightNav}>

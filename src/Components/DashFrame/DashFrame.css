@@ -111,6 +111,10 @@
 }
 .first{
     margin-right: 10px;
+   
+}
+.first img{
+    width: 100%;
 }
 .dividers{
     height: 100%;
@@ -151,6 +155,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.profile-image-dash img{
+    width: 100%;
 }
 @media screen  and (max-width:700px){
     .inner-list{
