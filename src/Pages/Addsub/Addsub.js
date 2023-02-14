@@ -15,6 +15,7 @@ import Showmax from '../../Asset/Showmax.png';
 import Playstation from '../../Asset/Playstation.png'
 import { editarray } from '../../redux/flex/flex.actions'
 import MobileDashopen from '../../Components/MobileDashopen/MobileDashopen'
+import { baseURL } from '../../domain'
 import MobileDash from '../../Components/MobileDash/MobileDash'
 import '../Addsub/Addsub.css'
 import { getDefaultNormalizer } from '@testing-library/dom';
@@ -34,7 +35,7 @@ function Addsub({presentcolor,headercolor,match,subscription,editarray}){
         let token = JSON.parse(localStorage.getItem('bearertoken'));
         axios.defaults.headers.common['Authorization'] = token;
 
-        axios.get("https://subscription-management-tool.herokuapp.com/users/category")
+        axios.get(`${baseURL}/users/category`)
     .then(res=>{
       console.log(res)
       console.log(res.data.data[0])

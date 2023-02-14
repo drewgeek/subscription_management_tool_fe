@@ -17,6 +17,7 @@ import Recaptcha from 'react-recaptcha'
 import {ReactComponent as Info} from '../../Asset/info.svg'
 import flexpng from '../../Asset/flexpng.png'
 import '../Signup/Signup.css'
+import { baseURL } from '../../domain';
 
 function Signup({details,signupdetails,signup}){
     const[message,setMessage]=useState("")
@@ -155,7 +156,7 @@ function Signup({details,signupdetails,signup}){
             setLogtext({color:"black"})
             setLoading(false)
 
-       axios.post("https://subscription-management-tool.herokuapp.com/register",params)
+       axios.post(`${baseURL}/register`,params)
   .then(res=>{
     
     console.log(res)
@@ -194,7 +195,7 @@ function Signup({details,signupdetails,signup}){
         // })
         // .catch(err=>console.log(err))
         
-        axios.post("https://subscription-management-tool.herokuapp.com/users/wallet",walletparams)
+        axios.post(`${baseURL}/users/wallet`,walletparams)
         .then(res=>{
           
           console.log(res)

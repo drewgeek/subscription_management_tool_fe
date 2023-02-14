@@ -20,6 +20,7 @@ import plusCircle from '../../Asset/plus-circle.png'
 import Mobilecard from '../../Components/Mobilecard/Mobilecard';
 import axios from 'axios';
 import '../Dashboard/Dashboard.css'
+import { baseURL } from '../../domain';
 
 function Dashboard({presentcolor,headercolor,subarray}){
     const[image,setImage]=useState({val:""})
@@ -94,7 +95,7 @@ let newoct=0
         //   let token = JSON.parse(localStorage.getItem('bearertoken'));
         //   axios.defaults.headers.common['Authorization'] = token;
  
-          axios.get("https://subscription-management-tool.herokuapp.com/users/subscription")
+          axios.get(`${baseURL}/users/subscription`)
       .then(res=>{
           
         console.log(res.data.data)
@@ -104,7 +105,7 @@ let newoct=0
      setArr(itemArray)
         console.log(itemArray)
         
-        axios.get("https://subscription-management-tool.herokuapp.com/users/wallet")
+        axios.get(`${baseURL}/users/wallet`)
     .then(res=>{
       
     //   console.log(res.data.data.data.balance)

@@ -19,7 +19,8 @@ import Upperbox from '../../Components/Upperbox/Upperbox'
 // import MobileDash from '../../Components/MobileDash/MobileDash'
 import axios from 'axios'
 import '../Newsub/Newsub.css'
-import MobileDashopen from '../../Components/MobileDashopen/MobileDashopen'
+import MobileDashopen from '../../Components/MobileDashopen/MobileDashopen';
+import { baseURL } from '../../domain'
 
 function Newsub({presentcolor,headercolor,date,match,subarray,subscription,addarray}){
     let packageFile=[]
@@ -40,7 +41,7 @@ function Newsub({presentcolor,headercolor,date,match,subarray,subscription,addar
         axios.defaults.headers.common['Authorization'] = token;
         
 
-        axios.get("https://subscription-management-tool.herokuapp.com/users/category")
+        axios.get(`${baseURL}/users/category`)
     .then(res=>{
       console.log(res)
       console.log(res.data.data[0])
@@ -204,7 +205,7 @@ function Newsub({presentcolor,headercolor,date,match,subarray,subscription,addar
     console.log(userObject)
         console.log(subscription)
         console.log(subarray)
-        axios.post("https://subscription-management-tool.herokuapp.com/users/subscription",userObject)
+        axios.post(`${baseURL}/users/subscription`,userObject)
     .then(res=>{
       
       console.log(res)

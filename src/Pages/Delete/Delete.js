@@ -7,6 +7,7 @@ import {ReactComponent as Hug} from '../../Asset/hug.svg'
 import axios from 'axios';
 import '../Delete/Delete.css'
 import { useHistory } from 'react-router-dom';
+import { baseURL } from '../../domain';
 
 function Delete({match}){
     const history=useHistory()
@@ -29,7 +30,7 @@ function Delete({match}){
         let token = JSON.parse(localStorage.getItem('bearertoken'));
         axios.defaults.headers.common['Authorization'] = token;
 
-        axios.get("https://subscription-management-tool.herokuapp.com/users/category")
+        axios.get(`${baseURL}/users/category`)
     .then(res=>{
       console.log(res)
       console.log(res.data.data[0])
@@ -138,7 +139,7 @@ let subId=match.params.name
 let num=subId.split(" ")[0]
 let status=subId.split(" ")[1]
 console.log(subId.split(" ")[0])
- axios.delete(`https://subscription-management-tool.herokuapp.com/users/subscription/${num}`)
+ axios.delete(`${baseURL}/users/subscription/${num}`)
  .then(res=>{
  console.log(res)
  let storestatus = JSON.parse(localStorage.getItem('status'));

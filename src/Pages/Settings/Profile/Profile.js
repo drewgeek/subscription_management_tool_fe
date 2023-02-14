@@ -10,6 +10,7 @@ import {useEffect} from 'react'
 import { headercolor, updatedetails } from '../../../redux/flex/flex.actions';
 import placeHolderImage from '../../../Asset/avi.jpg'
 import './Profile.css'
+import { baseURL } from '../../../domain';
 
 
 const Profile = ({presentcolor,headercolor, updatedetails, detailsupdate}) => {
@@ -53,7 +54,7 @@ const Profile = ({presentcolor,headercolor, updatedetails, detailsupdate}) => {
             photo: image,
         }
 
-        axios.patch(`https://subscription-management-tool.herokuapp.com/users/edit/${id}`, params)
+        axios.patch(`${baseURL}/users/edit/${id}`, params)
         .then(res => {
             localStorage.setItem('customerDetail', JSON.stringify(res.data.data))
         })

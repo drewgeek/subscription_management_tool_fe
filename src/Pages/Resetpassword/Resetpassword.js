@@ -12,6 +12,7 @@ import Loader from "react-loader-spinner";
 import {ReactComponent as Info} from '../../Asset/info.svg'
 import {passwordreset} from '../../redux/flex/flex.actions'
 import '../Resetpassword/Resetpassword.css'
+import { baseURL } from '../../domain';
 
 function Resetpassword({forgotpassword,passwordreset,match}){
     const[passwordCharacter,setPasswordCharacter]=useState({display:"none"})
@@ -71,7 +72,7 @@ if(passval.match(decimal))
 
     if(password===passwordsecond){
 
-axios.put("https://subscription-management-tool.herokuapp.com/resetpassword",params)
+axios.put(`${baseURL}/resetpassword`,params)
 .then(res=>{
   
   console.log(res.data)

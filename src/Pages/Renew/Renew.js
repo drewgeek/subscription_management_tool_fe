@@ -14,6 +14,7 @@ import { FaEye } from 'react-icons/fa';
 import Dashopen from '../../Components/Dashopen/Dashopen';
 import MobileDashopen from '../../Components/MobileDashopen/MobileDashopen'
 import Upperbox from '../../Components/Upperbox/Upperbox';
+import { baseURL } from '../../domain';
 
 function Belowbox({match,presentcolor,headercolor,firstbutn,secondbutn,choice,cycle,noclick,
 firstclick,secondclick,icon,addsubs,subarray,addarray,subscription,product}){
@@ -65,7 +66,7 @@ firstclick,secondclick,icon,addsubs,subarray,addarray,subscription,product}){
             setCheckers(true)
         }
     
-            axios.get("https://subscription-management-tool.herokuapp.com/users/category")
+            axios.get(`${baseURL}/users/category`)
         .then(res=>{
           console.log(res)
           console.log(res.data.data[0])

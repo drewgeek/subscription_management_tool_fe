@@ -12,6 +12,7 @@ import axios from 'axios'
 // import '../Fundsuccess/Fundsuccess.css'
 import '../fundsuccess/Fundsuccess.css'
 import { FaSellsy } from 'react-icons/fa'
+import { baseURL } from '../../../domain'
 
 function Fundsuccess({subscription,editarray}){
     const[realBalance,setRealBalance]=useState()
@@ -23,7 +24,7 @@ function Fundsuccess({subscription,editarray}){
           axios.defaults.headers.common['Authorization'] = token; 
          
 
-    axios.get("https://subscription-management-tool.herokuapp.com/users/wallet")
+    axios.get(`${baseURL}/users/wallet`)
     .then(res=>{
       
     //   console.log(res.data.data.data.balance)
@@ -38,7 +39,7 @@ function Fundsuccess({subscription,editarray}){
       let paramval={
           balance:newBalance
       }
-      axios.patch("https://subscription-management-tool.herokuapp.com/users/wallet",paramval)
+      axios.patch(`${baseURL}/users/wallet`,paramval)
     .then(res=>{
         console.log(res)
     })

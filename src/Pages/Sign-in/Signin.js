@@ -15,6 +15,7 @@ import setAuthHeader from '../../Components/Utility/Utility'
 import {signindetails,signin,customerdetails} from '../../redux/flex/flex.actions'
 import axios from 'axios'
 import '../Sign-in/Signin.css'
+import { baseURL } from '../../domain';
 
 
     
@@ -79,14 +80,14 @@ import '../Sign-in/Signin.css'
       
       
    }
-   console.log(params)
+   console.log({params})
    if((email!="")&&(password!="")){
     setButnstyle({backgroundColor:"grey"})
     // setLogtext({color:"rgba(3,64,6,20%)"})
     setLogtext({color:"black"})
     setLoading(false)
 
-    axios.post("https://subscription-management-tool.herokuapp.com/login",params)
+    axios.post(`${baseURL}/login`,params)
     .then(res=>{
       
       console.log(res)
@@ -136,10 +137,10 @@ import '../Sign-in/Signin.css'
    
     
     .catch((err)=>{
-     console.log(err.response.data.message)
+     console.log(err?.response?.data?.message)
      
    setErrPop({display:"flex"})
-   setErrMess(err.response.data.message)
+   setErrMess(err?.response?.data?.message)
    setButnstyle({backgroundColor:"#6200f0"})
    setLogtext({color:"white"})
    setLoading(true)

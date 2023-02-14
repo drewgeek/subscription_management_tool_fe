@@ -3,6 +3,7 @@ import { Pie } from 'react-chartjs-2';
 import {ReactComponent as Calendar} from '../../Asset/Calender Icon.svg'
 import { useEffect } from 'react';
 import axios from 'axios'
+import { baseURL } from '../../domain';
 import Subscription from '../../Pages/Subscription/Subscription';
  import '../../Components/Pie/Pie.css'
 //const[hap,setHap]=useState("")
@@ -19,7 +20,7 @@ let itemArray=[]
   let userDisplay=[]
   let token = JSON.parse(localStorage.getItem('bearertoken'));
         axios.defaults.headers.common['Authorization'] = token; 
-  axios.get("https://subscription-management-tool.herokuapp.com/users/subscription")
+  axios.get(`${baseURL}/users/subscription`)
 .then(res=>{
 console.log(res.data.data)
 itemArray=res.data.data

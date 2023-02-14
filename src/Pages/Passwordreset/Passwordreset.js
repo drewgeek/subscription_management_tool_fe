@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import flexpng from '../../Asset/flexpng.png'
 import axios from 'axios'
 import '../Passwordreset/Passwordreset.css'
+import { baseURL } from '../../domain'
 
 function Passwordreset({setnewemail,newemail}){
     const history=useHistory()
@@ -19,7 +20,7 @@ function Passwordreset({setnewemail,newemail}){
       }
       console.log(params)
       if(newemail.email!=""){
-        axios.put("https://subscription-management-tool.herokuapp.com/forgotpassword",params)
+        axios.put(`${baseURL}/forgotpassword`,params)
     .then(res=>{
       console.log(res)
     })

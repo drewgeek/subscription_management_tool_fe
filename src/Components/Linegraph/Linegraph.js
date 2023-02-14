@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
+import { baseURL } from '../../domain';
 
 
 
@@ -36,7 +37,7 @@ axios.defaults.headers.common['Authorization'] = token;
 //   let token = JSON.parse(localStorage.getItem('bearertoken'));
 //   axios.defaults.headers.common['Authorization'] = token;
 let userDisplay=[]
-axios.get("https://subscription-management-tool.herokuapp.com/users/subscription")
+axios.get(`${baseURL}/users/subscription`)
 .then(res=>{
 console.log(res.data.data)
 itemArray=res.data.data

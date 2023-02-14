@@ -3,6 +3,7 @@ import DashFrame from '../../Components/DashFrame/DashFrame'
 import Dashopen from '../../Components/Dashopen/Dashopen'
 import { connect } from 'react-redux'
 import {useEffect,useState} from 'react'
+import { baseURL } from '../../domain'
 import { useHistory } from 'react-router-dom'
 import {FaEye,FaEyeSlash,FaFacebookF,FaFacebook} from "react-icons/fa";
 import { headercolor } from '../../redux/flex/flex.actions';
@@ -136,7 +137,7 @@ function Autochange(){
                          let params={
                              autoRenew:autorenewal
                             }
-                        axios.patch(`https://subscription-management-tool.herokuapp.com/users/subscription/${clientIds}`,params)
+                        axios.patch(`${baseURL}/users/subscription/${clientIds}`,params)
                         .then(res=>{
                         console.log(res)
                         history.goBack()
@@ -262,7 +263,7 @@ function Autochange(){
                          let params={
                              autoRenew:autorenewal
                             }
-                        axios.patch(`https://subscription-management-tool.herokuapp.com/users/subscription/${clientIds}`,params)
+                        axios.patch(`${baseURL}/users/subscription/${clientIds}`,params)
                         .then(res=>{
                         console.log(res)
                         history.goBack()

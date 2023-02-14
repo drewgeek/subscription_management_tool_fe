@@ -21,6 +21,7 @@ import {ReactComponent as Paystack} from '../../../Asset/paystack.svg'
 import Flutter from '../../../Components/Flutter/Flutter'
 
 import '../Fundwallet/Fundwallet.css'
+import { baseURL } from '../../../domain'
 
 
 function Fundwallet({presentcolor,headercolor}){
@@ -35,7 +36,7 @@ function Fundwallet({presentcolor,headercolor}){
     useEffect(()=>{
         headercolor({ dashheadercolor:"#6200f0"})
          //cardbalance
-         axios.get("https://subscription-management-tool.herokuapp.com/users/wallet")
+         axios.get(`${baseURL}/users/wallet`)
          .then(res=>{
            
          //   console.log(res.data.data.data.balance)
