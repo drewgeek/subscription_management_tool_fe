@@ -2,6 +2,7 @@ import React from 'react'
 import {ReactComponent as FlexLogo} from '../../Asset/LOGO FLEX.svg';
 import {FaEye,FaEyeSlash,FaFacebookF,FaFacebook,FaUserAlt} from "react-icons/fa"; 
 import { useHistory } from 'react-router-dom';
+import { useEffect,useState } from 'react';
 import { connect } from 'react-redux';
 import notification from '../../Asset/Notification.png'
 import newsfeed from '../../Asset/Newsfeed.png'
@@ -18,6 +19,13 @@ import '../Dashopen/Dashopen.css'
 
 function Dashopen({children,dashheaderstyle,dashinvitestyle,dashsubscribestyle,paymentstyle}){
     const history=useHistory()
+    const[customerDetail,setCustomerDetail]=useState("")
+    useEffect(()=>{
+        let customerDetails=JSON.parse(localStorage.getItem('customerDetail'))
+       setCustomerDetail(customerDetails)
+        //   let customers=customer
+          console.log(customerDetail.firstname)
+      },[])
     return(
         <div className="dashboard">
             <div className="dashboard-inner">
@@ -67,7 +75,8 @@ function Dashopen({children,dashheaderstyle,dashinvitestyle,dashsubscribestyle,p
                             {/* <div>Hi,Judith</div> */}
                         </div>
                         <div className="dash-upper-right">
-                        <div className="front"><div className="profile-image-dashopen"><FaUserAlt className="userpix"/></div></div>
+                        <div className="front">{typeof (customerDetail.photo)==="string"? (<div className="profile-image-dash"><img src={customerDetail.photo}/></div>): (<div className="profile-image-dash"><FaUserAlt className="userpix-dash"/></div>)}</div>
+                        {/* <div className="front"><div className="profile-image-dashopen"><FaUserAlt className="userpix"/></div></div> */}
                         <div className="divider"></div>
                         <div className="firsts"><img src={search}/></div>
                         <div className="divider"></div>

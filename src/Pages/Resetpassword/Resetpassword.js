@@ -1,7 +1,7 @@
 import React from 'react'
 import Resetpassframe from '../../Components/Resetpassframe/Resetpassframe'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import {signindetails,signin} from '../../redux/flex/flex.actions'
 import {FaEye,FaEyeSlash,FaFacebookF,FaFacebook} from "react-icons/fa"; 
 import flexpng from '../../Asset/flexpng.png'
@@ -29,6 +29,8 @@ function Resetpassword({forgotpassword,passwordreset,match}){
     console.log(forgotpassword)
     let newToken;
     let toks=match.params.token
+    // const {token} = useParams();
+    // let toks = token;
 
    
    
@@ -49,7 +51,7 @@ function Resetpassword({forgotpassword,passwordreset,match}){
  
     // }
     const params={
-             password:password,  
+             newPassword:password,  
              resetLink:toks
       
    }
@@ -72,7 +74,7 @@ if(passval.match(decimal))
 axios.put("https://subscription-management-tool.herokuapp.com/resetpassword",params)
 .then(res=>{
   
-  console.log(res)
+  console.log(res.data)
   //if(((details.email)&&(details.password))!==""){
 //       if(remember===true){
   
@@ -94,7 +96,7 @@ axios.put("https://subscription-management-tool.herokuapp.com/resetpassword",par
       //let keeplogs=JSON.parse(localStorage.getItem('keeplog'))
       
    
-      history.push("/signin")
+      history.push("/signincontinue")
   }
 
 

@@ -1,0 +1,18 @@
+.Processing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    min-height: 100vh;
+}
+.Processing-and-loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 15%;
+}
+.Processing-and-loader h2{
+    margin-left: 20px;
+    color: #030640;
+}

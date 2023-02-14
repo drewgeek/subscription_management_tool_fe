@@ -1,0 +1,208 @@
+.card-in-fundwallet{
+    color: white;
+    max-width: 50%;
+}
+.payments-inner-content .images-and-option-payment{
+    display: flex;
+ 
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-right: 124px;
+    padding-left: 118.3px;
+}
+ .image-and-option-fund{
+    display: flex;
+  
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-bottom: 100px;
+    /* padding-right: 124px; */
+    /* padding-left: 118.3px; */
+}
+.fundwallet-inner{
+    padding-top: 60px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: none;
+   box-shadow: 0px 3px 10px  rgb(0 0 0/ 10%);
+   background-color: white;
+ 
+   max-width: 100%;
+   margin-bottom: 40px;
+   flex-wrap: wrap;
+}
+.fundwallet-inner .payment-option-card-buttons{
+   
+    margin: 0;
+    max-width: 100%;
+}
+
+.fundwallet-inner .payment-select-cards-buttons .flutterbutn{
+  
+    margin: 0;
+    
+}
+.option-right-fund{
+    margin: 0 auto;
+  
+    min-width: 50%;
+    /* max-width: 50%; */
+}
+.image-left-fund{
+    margin: 0 auto;
+    align-self: center;
+    /* margin-left: 0; */
+    margin-bottom: 100px;
+    margin-top: 100px;
+    /* margin-left: 0; */
+  
+}
+.option-right-fund p{
+    text-align: center;
+    font-size: 18px;
+    color: rgba(51,51,51,0.7);
+    margin-bottom: 50px;
+}
+.fund{
+    font-size: 40px;
+    color: white;
+}
+.payment-option-fund-buttons button{
+    margin-right: 20px;
+    margin-bottom: 40px;
+    width: 248px;
+    height: 60px;
+    display: flex;
+  font-size: 16px;
+  color: #333333;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+ 
+    border-radius: 4px;
+    border: 1px solid rgba(3,6,64,0.2);
+}
+.payment-option-fund-buttons{
+  
+    margin: 0 auto;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   justify-content: center; 
+  
+
+}
+.fund-mobile-views{
+    display: none;
+}
+.fundwallet-inner .payment-select-cards-buttons button{
+    margin-left: 0;
+    margin: 0 auto;
+    margin: 0;
+}
+.fundwallet-inner .payment-select-cards-buttons .cancel-payment{
+    background-color: white;
+    color: #6200f0;
+    border: 1px solid #6200f0;
+    margin-right: 50px;
+}
+.card-in-fundwallet{
+    margin: 0 auto;
+    min-width: 390px;
+    /* min-width: 100%;
+    max-width: 100%; */
+    padding-left: 0px;
+}
+.fundwallet-inner .cardImage-subscribe{
+       margin-left: 0;
+       max-width: 100%;
+       min-width: 100%;
+   /* margin: 0 auto; */
+   
+}
+.fundwallet-inner .payment-select-cards-buttons{
+    margin: 0 auto;
+ 
+    /* min-width: 60%; */
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    padding-bottom: 30px;
+  
+}
+
+
+@media screen and (max-width:930px) {
+    .option-right-fund{
+        max-width: 100%;
+    }
+    .fundwallet-inner{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 30px;
+    }
+    .fundwallet-inner .image-left-fund{
+        max-width: 100%;
+        margin: 0;
+        min-width: 100%;
+      
+    }
+    .payment-option-fund-buttons{
+        max-width: 100%;
+        padding: 0;
+       
+    }
+    .payment-option-fund-buttons button{
+        max-width: 100%;
+        margin-right: 0;
+    }
+    .fundwallet-inner .cardImage-subscribe{
+       
+        max-width: 100%;
+       
+    }
+    .card-in-fundwallet{
+        /* max-width: 100%;
+        min-width: 100%; */
+        min-width: 200px;
+        max-width: 380px;
+        margin-bottom: 50px;
+      
+    }
+    .fundwallet-inner .cancel-payment{
+        background-color: white;
+        color: #6200f0;
+        margin-right: 30px;
+    }
+    .fund-view-paycard-div{
+        display: none;
+    }
+    .fund-mobile-views{
+        display: flex;
+    }
+    .fundwallet-inner  .payment-select-cards-buttons{
+        display: flex;
+        justify-content: center;
+       
+      
+    }
+    .fundwallet-inner  .payment-select-cards-buttons button{
+       
+        width: 118px;
+        height: 40px;
+        font-size: 12px;
+        margin-right: 0px;
+        margin-left: 0;
+    }
+        .image-and-option-fund{
+            margin-bottom: 50px;
+        }
+        .image-left-fund{
+    margin-bottom: 50px;
+        }
+   
+}

@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import {useEffect} from 'react'
 import { headercolor } from '../../../redux/flex/flex.actions';
 import './Payments.css'
+import MobileDash from '../../../Components/MobileDash/MobileDash';
 
 const Payments = ({presentcolor,headercolor}) => {
     const user = localStorage.getItem('user');
@@ -18,6 +19,8 @@ const Payments = ({presentcolor,headercolor}) => {
 
     return (
         <>
+        <div className="webmobile-payment-settings">
+            <div className="web-view-payment-settings">
             <DashFrame dashSettingsStyle={{backgroundColor:presentcolor.dashheadercolor}}>
                 <div className="inner-settings-section">
                     <div className="header">
@@ -72,7 +75,68 @@ const Payments = ({presentcolor,headercolor}) => {
                         </form>
                     </div>    
                 </div>    
-            </DashFrame> 
+            </DashFrame>
+            </div> 
+            <div className="mobile-view-payment-settings">
+                <MobileDash  dashSettingsStyle={{backgroundColor:presentcolor.dashheadercolor}}>
+                <div className="inner-settings-sectionr">
+                    <div className="header">
+                        <h3>Settings</h3>
+                        {/* <hr className="welcome-divider"/> */}
+                    </div>
+                    <div className="sub-headers">
+                        <Link to={`/settings/profile/${userStr.id}`}><p>Profile</p></Link>
+                        <Link to="/settings/notifications"><p>Notifications</p></Link>
+                        <Link to="/settings/application"><p>Application</p></Link>
+                        <Link to="/settings/payments" style={{borderBottom: "3px solid #6200f0", color: "#030640"}}><p>Payments</p></Link>
+                    </div>
+                    <div className="inner-sectionr">
+                        <form className="payments-form">
+                            <div className="payments-settings">
+                                <div className="payment-options">
+                                    <h4>Payment options</h4>
+                                    <div className="card-payment">
+                                        <input type="checkbox"/>
+                                        <label for="payment">Pay with card always</label>
+                                    </div>
+                                    <div className="e-wallet">
+                                        <input type="checkbox"/>
+                                        <label for="payment">Pay with my E-wallet always</label>
+                                    </div>
+                                    <div className="options">
+                                        <input type="checkbox"/>
+                                        <label for="payment">Always ask for my payment option</label>
+                                    </div>
+                                </div>
+                                <div className="change-pin">
+                                    <h4>Change PIN</h4>
+                                    <p>Please type in a 4-digit number as your pin and confirm new pin</p>
+                                    <div className="old-pin">
+                                       
+                                        <input type="text" placeholder="Old PIN" />
+                                    </div>
+                                    <div className="new-pin">
+                                        
+                                        <input type="text" placeholder="New PIN"/>
+                                    </div>
+                                    <div className="confirm-pin">
+                                      
+                                        <input type="text"placeholder="Confirm PIN"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="app-button-field">
+                                <button type="submit" className="submit-btn">APPLY</button>
+                                <button type="button" className="discard-btn" >DISCARD</button>
+                            </div>
+                        </form>
+                    </div>    
+                </div>    
+
+                </MobileDash>
+
+            </div>
+            </div>
         </>
     )
 }

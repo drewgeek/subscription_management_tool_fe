@@ -38,7 +38,9 @@ function Dashboard({presentcolor,headercolor,subarray}){
     const[searchDatar,setSearchDatar]=useState("")
     const[oct,setOct]=useState("")
     const[nov,setNov]=useState("")
+    const[dec,setDec]=useState("")
     const[lastDate,setLastDate]=useState("-")
+    const[cardbalance,setcardbalance]=useState(0.00)
     let janAmt=0
 let febAmt=0
 let marAmt=0
@@ -80,7 +82,9 @@ let newoct=0
     let conty;
     //window.location.reload()
     let contentd=""
+    let customerDetail=JSON.parse(localStorage.getItem('customerDetail'))
     useEffect(()=>{
+       
         headercolor({ dashheadercolor:"#6200F0"})
           let token = JSON.parse(localStorage.getItem('bearertoken'));
           axios.defaults.headers.common['Authorization'] = token; 
@@ -100,7 +104,13 @@ let newoct=0
      setArr(itemArray)
         console.log(itemArray)
         
-
+        axios.get("https://subscription-management-tool.herokuapp.com/users/wallet")
+    .then(res=>{
+      
+    //   console.log(res.data.data.data.balance)
+    setcardbalance(res.data.data.balance)
+      console.log(res.data.data.balance)
+    })
            
         //arrs=itemArray
         
@@ -131,11 +141,14 @@ let newoct=0
                 setOct(octAmt)
                 if(val.dateSubscribed.split("-")[1]==11){
                     novAmt+=val.amount}
+                    if(val.dateSubscribed.split("-")[1]==12){
+                        decAmt+=val.amount}
                     setNov(novAmt)
+                    setDec(decAmt)
 
-                    setLastDate(val.dateSubscribed)
-                    console.log(lastDate)
-                    console.log(val.dateSubscribed)
+                    // setLastDate(val.dateSubscribed)
+                    // console.log(lastDate)
+                    // console.log(val.dateSubscribed)
         //     let contents=arr.map((val,index)=>{
         //         console.log(userDisplay)
         //     cats=val.subCategory
@@ -218,7 +231,7 @@ const data = {
    datasets: [
      {
        label: 'Subscription',
-       data: [janAmt, febAmt, marAmt, aprAmt, mayAmt, junAmt,julAmt,augAmt,sepAmt,oct,nov,decAmt],
+       data: [janAmt, febAmt, marAmt, aprAmt, mayAmt, junAmt,julAmt,augAmt,sepAmt,oct,nov,dec],
       lineTension:0.5,
        fill: false,
      //   backgroundColor: 'rgb(255, 99, 132)',
@@ -317,7 +330,8 @@ const data = {
          console.log(index)
         //  if(val.subCategory=="Gotv")
         //  { setProductId("")}
-        namearr.map((item,indx)=>{
+        // namearr.map((item,indx)=>{
+           arr.map((item,indx)=>{
             console.log(indx)
         if(indx==index){
             console.log(item._id)
@@ -333,7 +347,8 @@ const data = {
      function Active(val,index){
        
         //console.log(indx)
-        namearr.map((item,indx)=>{
+        // namearr.map((item,indx)=>{
+            arr.map((item,indx)=>{
         if(indx==index){
             console.log(item._id)
             clientItem=item._id
@@ -350,7 +365,8 @@ const data = {
     }
     function Expired(val,index){
     
-        namearr.map((item,indx)=>{
+        // namearr.map((item,indx)=>{
+            arr.map((item,indx)=>{
         if(indx==index){
             console.log(item._id)
             clientItem=item._id
@@ -368,7 +384,8 @@ const data = {
     function handledelete(val){
       
         console.log(val)
-        namearr.map((item,indx)=>{
+        // namearr.map((item,indx)=>{
+            arr.map((item,indx)=>{
             console.log(item.subscriptionStatus)
             if(item.subscriptionStatus!=="Active"){
              
@@ -457,7 +474,7 @@ console.log(contentd)
       //  headercolor({ dashheadercolor:"#6200F0"})                   
      //},[])
      //console.log(presentcolor.dashheadercolor)
-
+    // },[]) 
 
     return(
             <div className="dashtotal">
@@ -481,7 +498,7 @@ console.log(contentd)
                             <div className="acc-summ"><p>Account summary</p></div>
                             <div className="account-line"></div>
                             </div>
-                            <p onClick={(()=>{history.push("/Product")})} className="dashproduct">Products</p>
+                            <p onClick={(()=>{history.push("/product")})} className="dashproduct">Products</p>
                             </div>
                             <button className="dash-add-button" onClick={(()=>{history.push("/productcategory")})}> <PlusLogo/> <p> ADD SUBSCRIPTION</p></button>
                             </div>
@@ -498,16 +515,16 @@ console.log(contentd)
                                     </div>
                                 </div>
                                 <div className="fourth-line-right">
-                                    <button>FUND WALLET</button>
+                                    <button onClick={(()=>{history.push("/fundwallet")})}>FUND WALLET</button>
                                     <div className="WALLET-div" >
                                         <div className="wallet">
                                             <div className="wallet-upper">
                                                 <p className="regular-weight-dash">Account Id</p>
-                                                <p className="medium-weight-dashboard">20210801</p>
+                                                <p className="medium-weight-dashboard"></p>{customerDetail.userId}
                                             </div>
                                             <div className="wallets-lower">
                                                 <div><p className="medium-weight-dashboard">E-wallet Balance</p></div>
-                                                <div><p className="money-dashboard">NGN 0.00</p></div>
+                                                <div><p className="money-dashboard">NGN {cardbalance}</p></div>
                                             </div>
                                         </div>
                                     </div>
@@ -710,7 +727,7 @@ console.log(contentd)
                             <div  className="inner-mobile-dashboard">
                                 <div className="view-and-button">
                                     <h3>Overview</h3>
-                                    <button onClick={(()=>{history.push("/addsub")})}> <img src={plusCircle} alt="add"/><p>ADD SUBSCRIPTION</p></button>
+                                    <button onClick={(()=>{history.push("/productcategory")})}> <img src={plusCircle} alt="add"/><p>ADD SUBSCRIPTION</p></button>
                                 </div>
                                 <div className="mobile-categ">
                                     <span className="mobile-acc-line">
@@ -718,7 +735,7 @@ console.log(contentd)
                                     <hr/>
                                     </span>
                                    
-                                    <p className="p-Mobiles">Products</p>
+                                    <p onClick={(()=>{history.push("/product")})} className="p-Mobiles" >Products</p>
                                 </div>
                                 <div className="mobilecard-in-Dashboard"><Mobilecard/></div>
                                

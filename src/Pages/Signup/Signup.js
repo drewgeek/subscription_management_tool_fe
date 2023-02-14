@@ -37,6 +37,8 @@ function Signup({details,signupdetails,signup}){
     const[countryval,setCountryval]=useState("")
     const[loading, setLoading]=useState(true)
     const[popup,setPopup]=useState({display:"none"})
+    const[popupInfo,setPopupInfo]=useState({display:"none"})
+    const[terms,setTerms]=useState(false)
     const history=useHistory()
 
     
@@ -95,7 +97,7 @@ function Signup({details,signupdetails,signup}){
         
 
     }
-    const handlesubmit=(e)=>{
+    const  handlesubmit=  (e)=>{
         e.preventDefault()
       
         if((passval.length <8) ){
@@ -103,7 +105,36 @@ function Signup({details,signupdetails,signup}){
             setPasswordWrap({marginBottom:"5px"})
         }
         var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-if(passval.match(decimal))
+        
+// if(passval.match(decimal))
+// {
+  
+
+//         console.log(details)
+//         //console.log(signup)
+        
+//         const params={
+//              firstName:details.firstName,
+//             lastName:details.lastName,
+//        email:details.email,
+//         password:details.password,
+//             country:details.country
+           
+//         }
+//         console.log(params)
+        
+       //fetch("https://subscription-management-tool.herokuapp.com/register",
+      //{method: 'POST',
+  //body:JSON.stringify(params)})
+  
+       //.then((resp) => {console.log(resp)})
+      
+      // .catch((err)=>{
+          // console.log(err)
+       //})
+
+        if((emailval!="")&&(passval!="")&&(countryval!="")&&(first!="")&&(second!="")&&(terms===true)){
+            if(passval.match(decimal))
 {
   
 
@@ -119,18 +150,6 @@ if(passval.match(decimal))
            
         }
         console.log(params)
-        
-       //fetch("https://subscription-management-tool.herokuapp.com/register",
-      //{method: 'POST',
-  //body:JSON.stringify(params)})
-  
-       //.then((resp) => {console.log(resp)})
-      
-      // .catch((err)=>{
-          // console.log(err)
-       //})
-
-        if((emailval!="")&&(passval!="")&&(countryval!="")&&(first!="")&&(second!="")){
 
             setButnstyle({backgroundColor:"grey"})
             // setLogtext({color:"rgba(3,64,6,20%)"})
@@ -141,6 +160,7 @@ if(passval.match(decimal))
   .then(res=>{
     
     console.log(res)
+    console.log(res.data.data.id)
     if(((details.email)&&(details.password))!==""){
         if(remember===true){
     
@@ -159,9 +179,34 @@ if(passval.match(decimal))
     }
 
     if(res.data.status==='success'){
+        let walletparams={
+            balance: 0,
+            userId:res.data.data.id
+           
+        }
+        console.log(walletparams)
+        // fetch("https://subscription-management-tool.herokuapp.com/users/wallet",
+        // {method:'POST', body: walletparams})
+        // .then(res =>{
+        //     res.json()
+           
+        //     .then(file =>{console.log(file)})
+        //     // .catch(err=>console.log(err))
+        // })
+        // .catch(err=>console.log(err))
+        
+        axios.post("https://subscription-management-tool.herokuapp.com/users/wallet",walletparams)
+        .then(res=>{
+          
+          console.log(res)
+        })
+
         //let keeplogs=JSON.parse(localStorage.getItem('keeplog'))
         //setTimeout(()=>{
             setPopup({display:"flex"})
+            setButnstyle({backgroundColor:"#6200f0"})
+   setLogtext({color:"white"})
+   setLoading(true)
        //console.log(res.data.message)
        // setTimeout(function(){history.push("/signin")},3000);
        //history.push("/signin")
@@ -193,7 +238,10 @@ if(passval.match(decimal))
     }
 
     }
-
+    else{
+        setPopupInfo({display:"flex"})
+    }
+    
 
 
        
@@ -258,13 +306,17 @@ if(passval.match(decimal))
         <div className="signup-total" >
             
             <div className="signup" >
-            <div className="cover-check" style={popup}>
+            {/* <div className="cover-check" style={popup}> */}
+            <div  style={popupInfo} className="check-issue">
+                    <div className="cancel-confirm-signup" onClick={(()=>{setPopupInfo({display:"none"}) }) } ><Cancel/></div>
+                        <p>Incomplete information.</p>
+                    </div>
             
-                    <div className="check-text">
+                    <div  style={popup} className="check-issue">
                     <div className="cancel-confirm-signup" onClick={(()=>{history.push("/signin") }) } ><Cancel/></div>
                         <p>Account created successfully.</p>
                     </div>
-                </div>
+                {/* </div> */}
 
                 <div style={issuePop} className="check-issue">
                     <div className="cancel-confirm-signup" onClick={(()=>{setIssuePop({display:"none"}) }) } ><Cancel/></div>
@@ -272,7 +324,7 @@ if(passval.match(decimal))
                     </div>
             <div className="inner-signup">
             <div className="signup-textandimage">
-                <div className="signup-textandimage-logo"><FlexLogo style={{width:"108px",height:"42px"}}/></div>
+                <div className="signup-textandimage-logo"><FlexLogo style={{width:"108px",height:"42px"}}  onClick={(()=>{history.push("/")})}/></div>
                 <div>
                 <h2>Stay connected always</h2>
                 <p>All-in-one subscription management platform. Keep track of your expenses, set auto-renewal
@@ -356,7 +408,7 @@ if(passval.match(decimal))
             type="Oval" width={20} color="#000000"/></div>)}</button>
            <div className="terms"> 
            <div className="signup-remember-me">
-           <input id="termscheck" className="terms-checkbox" type="checkbox" required />
+           <input id="termscheck" onChange={(()=>{setTerms(true)})} className="terms-checkbox" type="checkbox" required />
            <label for="termscheck"> </label>
            <div  className="terms-and-policy">
            <p >By clicking you agree to our 
@@ -382,13 +434,15 @@ if(passval.match(decimal))
 
             <div className="signup-mobile">
 
-            <div className="cover-check" style={popup}>
+            <div  style={popupInfo} className="check-issue">
+                    <div className="cancel-confirm-signup" onClick={(()=>{setPopupInfo({display:"none"}) }) } ><Cancel/></div>
+                        <p>Incomplete information.</p>
+                    </div>
             
-            <div className="check-text">
-            <div className="cancel-confirm-signup" onClick={(()=>{history.push("/signin") }) } ><Cancel/></div>
-                <p>Account created successfully.</p>
-            </div>
-        </div>
+                    <div  style={popup} className="check-issue">
+                    <div className="cancel-confirm-signup" onClick={(()=>{history.push("/signin") }) } ><Cancel/></div>
+                        <p>Account created successfully.</p>
+                    </div>
 
         <div style={issuePop} className="check-issue">
             <div className="cancel-confirm-signup" onClick={(()=>{setIssuePop({display:"none"}) }) } ><Cancel/></div>
@@ -479,7 +533,7 @@ if(passval.match(decimal))
 
                 <div className="terms"> 
            <div className="signup-remember-me">
-           <input id="termscheck" className="terms-checkbox" type="checkbox" required />
+           <input id="termscheck" className="terms-checkbox" onChange={(()=>{setTerms(true)})} type="checkbox" required />
            <label for="termscheck"> </label>
            <div  className="terms-and-policy">
            <p >By clicking you agree to our 

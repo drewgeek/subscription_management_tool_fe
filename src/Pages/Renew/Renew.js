@@ -355,9 +355,9 @@ return(
                    } >DISCARD</button>
                     {/* <button className="second-belowbutton" onClick={(()=>{choice=="" ? noclick(): secondclick()})} >{secondbutn}</button> */}
                     <button className="second-belowbutton" onClick={(()=>{
-                        alert('ki')
+                        
                         if((billingCycle!="")&&(selectpack!="")){
-                            alert("jj")
+                           
                            sub()
                         }
                         

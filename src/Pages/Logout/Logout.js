@@ -9,10 +9,13 @@ import '../Logout/Logout.css'
 function Logout(){
     const history=useHistory()
     // useEffect(()=>{
-    //     headercolor({ dashinvitecolor:"purple"})
-                    
-       
+    //     headercolor({ dashinvitecolor:"purple"})   
     //  },[])
+    const logout = () => {
+        localStorage.clear();
+        history.push("/signin");
+    }
+
 return(
     
         <div className="logout">
@@ -23,7 +26,7 @@ return(
                <h3>Are you sure you want to leave Flex ?</h3>
                <div className="LOGOUT-BUTTON">
                    <button onClick={history.goBack} className="logout-first-button">DISCARD</button>
-                   <button onClick={(()=>{history.push("/signin")})} className="logout-second-button">PROCEED</button>
+                   <button onClick={logout} className="logout-second-button">PROCEED</button>
                </div>
             </div>
         </div>

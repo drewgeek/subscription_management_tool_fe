@@ -102,12 +102,12 @@ function Signincontinue({detailssignin,signindetails,customerdetails,customer}){
         //customer-details
       
         if((JSON.parse(localStorage.getItem('customerDetail')))!=null){
-            localStorage.setItem('customerDetail', JSON.stringify({firstname:res.data.data.firstName,email:res.data.data.email,lastname:res.data.data.lastName}));
+            localStorage.setItem('customerDetail', JSON.stringify({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:res.data.data.photo,phone:res.data.data.phone,userId:res.data.data.userId}));
         }
-        else{localStorage.setItem('customerDetail', JSON.stringify({firstname:res.data.data.firstName,email:res.data.data.email,lastname:res.data.data.lastName}));}
+        else{localStorage.setItem('customerDetail', JSON.stringify({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:res.data.data.photo,phone:res.data.data.phone,userId:res.data.data.userId}));}
         
         setAuthHeader()
-          customerdetails({firstname:res.data.data.firstName,email:res.data.data.email,lastname:res.data.data.lastName})
+          customerdetails({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:res.data.data.photo,phone:res.data.data.phone,userId:res.data.data.userId})
           console.log(customer)
           history.push("/Dashboard")
       }

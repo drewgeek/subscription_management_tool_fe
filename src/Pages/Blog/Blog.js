@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { headercolor } from '../../redux/flex/flex.actions'
 import BlogCard from './BlogCard';
+import CardImage from '../../Asset/blogCardImage.png';
 import data from './BlogData'
 import '../Blog/Blog.css';
 
@@ -25,6 +26,13 @@ function Blog({headercolor,presentcolor}){
                     <p>Read, watch and absorb the content that we publish in our news blog. 
                         Also leave comments and communicate with other users.</p>
                 </div>
+                <div className="blog-card-except">
+                    <h3 className="header-except-blog">Omdia foreCasts cloud gaming to nudge $12bn by 2026</h3>
+                    <div className="image-div-header-img"><img src={CardImage} alt="header-image"/></div>
+                    <p>Subscription services such as Xbox Game Pass Ultimate and playStation Now will be the primary force 
+                        driving cloud gaming helping to generate $3.7bn in total in 2021.</p>
+                <div className="blog-card-except-below"><p>Tina Lawal</p> <p>02 Dec</p></div>
+                </div>
                 <div className="blogs">
                     {data
                         .map((data, index) => (
@@ -36,6 +44,16 @@ function Blog({headercolor,presentcolor}){
                                 date={data.date}
                             />
                         ))}
+                </div>
+                <div className="lower-blog-except">
+                                <div className="image-lower-except-div"><img src={CardImage} alt="cardimage"/></div>
+
+                <h3>Future of Work</h3>
+                <p>Majority of people will work in jobs that don't exist today...</p>
+                <div className="lower-blog-except-profile-detail">
+                    <p>Tina Lawal</p>
+                    <p>02 Dec</p>
+                </div>
                 </div>
                 <Footer/>
             </div>

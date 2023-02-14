@@ -23,7 +23,7 @@ function  Paymentsuccess({subscription,editarray}){
     let clientIds = JSON.parse(localStorage.getItem('clientIds'));
     let userObject = JSON.parse(localStorage.getItem('userObject')); 
     let testObject = JSON.parse(localStorage.getItem('testObject'));  
-    console.log(userId)    
+    // console.log(userId)    
     console.log(userObject)
     //dates
     var today = new Date();
@@ -46,9 +46,11 @@ userObject.dateSubscribed=date
 //    let testObject={amount:subscription.amount,product:subscription.productName,subCategory:named,autoRenew:subscription.Renewal,
 //         billingCycle:subscription.billingCycle,category:"Entertainment",dateExpired:2021-11-9,dateSubscribed:2021-10-10,
 //         subscriptionStatus:"Expired"}
-    testObject.dateExpired="2021-11-09"
-testObject.dateSubscribed="2021-10-10"
-    testObject.subscriptionStatus="Expired"
+
+//later
+//     testObject.dateExpired="2021-12-10"
+// testObject.dateSubscribed="2021-11-10"
+//     testObject.subscriptionStatus="Expired"
 
 
     newObject.dateExpired=future
@@ -65,7 +67,10 @@ newObject.dateSubscribed=date
 .then(res=>{
 console.log(res)
 localStorage.removeItem(clientIds)
-localStorage.removeItem(clientRes)
+// localStorage.removeItem(clientRes)
+
+
+
 // //history.push("/dashboard")
 
 })
@@ -78,7 +83,8 @@ localStorage.removeItem(clientRes)
       .then(res=>{
          
        console.log(res)
-       localStorage.removeItem(clientRes)
+    //    localStorage.removeItem(clientRes)
+       
      // // //history.push("/dashboard")
      })}
 

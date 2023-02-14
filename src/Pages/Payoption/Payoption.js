@@ -45,7 +45,7 @@ return(
                         }})}><Paycard className="payment-option-icon"/>PAY WITH CARD</button>
                             <button style={butnbordersecond} onClick={(()=>{
                         if(click==false){
-                            setButnbordersecond({border:"1px solid #6200f0x"})
+                            setButnbordersecond({border:"1px solid #6200f0"})
                             setClick(true) 
                             setChosen("wallet")
                             
@@ -55,7 +55,7 @@ return(
                     </div>
                     <div className="payment-select-buttons">
                             <button onClick={history.goBack} className="cancel-payment">CANCEL</button>
-                            <button onClick={(()=>{if(chosen=="card"){history.push("/paymentcard")}})} className="proceed-payment">PROCEED</button>
+                            <button onClick={(()=>{if(chosen=="card"){history.push("/paymentcard")} else{history.push("/walletpayment")}                             })} className="proceed-payment">PROCEED</button>
                         </div>
                </div>
                 </div>
@@ -80,7 +80,7 @@ return(
                         }})}><Paycard className="payment-option-icon"/>PAY WITH CARD</button>
                             <button style={butnbordersecond} onClick={(()=>{
                         if(click==false){
-                            setButnbordersecond({border:"1px solid #6200f0x"})
+                            setButnbordersecond({border:"1px solid #6200f0"})
                             setClick(true) 
                             setChosen("wallet")
                             
@@ -88,7 +88,7 @@ return(
                             </div>
                             <div className="cance-proceed-mobile">
                             <button onClick={history.goBack} className="cancel-payment  second-cancel-button">CANCEL</button>
-                            <button onClick={(()=>{if(chosen=="card"){history.push("/paymentcard")}})} className="proceed-payment">PROCEED</button>
+                            <button onClick={(()=>{if(chosen=="card"){history.push("/paymentcard")} else{history.push("/walletpayment")}})} className="proceed-payment">PROCEED</button>
                             </div>
                             </div>
 

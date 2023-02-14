@@ -24,26 +24,54 @@
     padding: 20px 42px 5px 42px;
 }
 
-.inner-section{
+.inner-sectiong{
     width: 1016px;
-    height: 762px;
+    max-width: 100%;
+    min-height: 762px;
     margin: 12.5px 0 10px 0;
-    display: flex;
+    /* display: flex; */
     padding: 50px 30px 66px;
     border-radius: 10px;
     box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
+.App-form{
+  
+    max-width: 100%;
+}
 
 .Application-settings{
-    width: 900px;
+    /* width: 900px; */
+    max-width: 100%;
     display: grid;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+   
     grid-template-columns: 1fr 1fr;
+}
+
+.Application-settings .display-flex-app{
+ 
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+   
+    
+}
+.Application-settings{
+   
+    min-width: 100%;
+    max-width: 100%;
+}
+.App-form{
+   
+    min-width: 100%;
+    max-width: 100%;
 }
 
 .display{
     width: 430px;
-    height: 187px;
+    min-height: 187px;
     margin: 0 88px 68px 0;
     padding: 24px 30px 30px 30px;
     box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
@@ -81,7 +109,8 @@
     width: 158px;
     height: 31px;
     border-radius: 5px;
-    border: solid 1px rgba(3, 6, 64, 0.2);
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+    border: none;
     background-color: #fff;
     color: rgba(25, 29, 108, 0.5);
     font-size: 14px;
@@ -102,6 +131,8 @@
 .prefered-language{
     display: flex;
     justify-content: space-between;
+   
+    width: 100%;
 }
 
 .prefered-language span{
@@ -130,14 +161,125 @@
     display: grid;
     grid-template-rows: 1fr 1fr;
     text-align: left;  
+   
+  
 }
 
 .app-button-field{
     margin: 60px 0 0 250px;
     display: flex;
+   
+    
 }
 
 .language h4, .display h4, .currency h4{
     color: #191d6c;
     font-size: 18px;
+}
+.mobile-App-Setting{
+    display: none;
+}
+@media screen and (max-width:700px) {
+    .prefered-language{
+        min-width: 80%;
+    }
+    .display{
+        width: 100%;
+        margin-left: 0;
+        align-self: flex-start;
+    }
+    .language{
+        width: 100%;
+        margin-left: 0;
+        align-self: flex-start;
+    }
+    .currency{
+        width: 100%;
+        margin-left: 0;
+        align-self: flex-start;
+    }
+    .mobile-App-Setting{
+        display: flex;
+        min-height: 100%;
+      
+    }
+    .web-App-Setting{
+        display: none;
+    }
+    .mobileweb-App-Setting{
+        position: relative;
+        min-height: 100vh;
+    }
+    .Application-settings{
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+        align-items: center;
+       min-height: 100%;
+      
+        max-width: 100%;
+       
+    }
+    .Application-settings div{
+        margin-top: 30px;
+    }
+    .App-form{
+       
+        width: 100%;
+    }
+    .mobile-App-Setting .Application-settings .app-button-field{
+       
+        margin: 0;
+    }
+     .app-button-field{
+       
+        max-width: 100%;
+        margin: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .submit-btn{
+        padding: 10px;
+        font-size: 12px;
+    }
+    .discard-btn{
+        padding: 10px;
+        font-size: 12px;
+    }
+    .sub-headers{
+        overflow-x: auto;
+        width: 100%;
+        margin-bottom: 10px;
+        padding-left: 16px;
+      padding-right: 16px;
+       height: 60px;
+    border-bottom: 2px solid rgba(7, 10, 74, 0.05);
+    border-top: 2px solid rgba(7, 10, 74, 0.05);
+        display: flex;
+        align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .sub-headers a{
+        text-decoration: none;
+        list-style: none;
+    }
+    .sub-headers p{
+        font-size: 14px;
+     
+      margin-right: 16px;
+      
+     
+     color: #030640;
+     
+     
+
+    }
+    .inner-sectiong{
+       
+    margin-left: 16px;
+    margin-right: 16px;
+       margin-bottom: 24px;
+    }
+    
 }

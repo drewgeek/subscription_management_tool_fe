@@ -22,7 +22,7 @@ import {useEffect,useState} from 'react'
 import '../MobileDash/MobileDash.css'
 
 
-function MobileDash({children,dashheaderstyle,dashinvitestyle,dashsubscribestyle,dashSettingsStyle, paymentstyle, customer}){
+function MobileDash({children,dashheaderstyle,dashinvitestyle,dashsubscribestyle,dashSettingsStyle, paymentstyle,dashSupportStyle, customer}){
     const[customerDetail,setCustomerDetail]=useState("")
     const[leftNav,setLeftNav]=useState({display:"none"})
     const[rightNav,setRightNav]=useState({})
@@ -63,7 +63,7 @@ return(
                            <div>Settings</div>
                            </div>
 
-                           <div className="inner-list">
+                           <div className="inner-list" style={dashSupportStyle} onClick={(()=>{setLeftNav({display:"none"});history.push("/support/faq")})}>
                            <div className="dash-icon"><Supportsvg/></div>
                            <div>Support</div>
                            </div>
@@ -97,10 +97,14 @@ return(
        </div>
        </div>
        <div className="mobile-dash-lower">
-       <div className="profile-avatar"><FaUserAlt/></div>
+       {/* <div className="profile-avatar">{customerDetail.photo!=""? ( */}
+       
+       <div className="profile-avatar">{typeof (customerDetail.photo)==="string"? (<img src={customerDetail.photo}/>):(<FaUserAlt />)}</div>
+       {/* )}</div> */}
+       {/* <div className="profile-avatar"><FaUserAlt/></div> */}
        <p>Hi,{ customerDetail.firstName}</p>
        </div>
-       <div style={rightNav}>
+       <div className="children" style={rightNav}>
            {children}
        </div>
       

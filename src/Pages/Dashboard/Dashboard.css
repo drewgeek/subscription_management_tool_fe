@@ -52,6 +52,7 @@ padding: 10px 0px;
     font-size: 16px;
     font-weight: 500px;
     justify-content: center;
+    padding: 10px;
     
 }
 .dash-add-button:hover{
@@ -423,7 +424,7 @@ padding: 10px 0px;
    /* overflow: auto; */
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:680px){
     .mobile-dashboard-All{
         display: flex;
         flex-direction: column;
@@ -461,10 +462,14 @@ padding: 10px 0px;
         border: none;
         background-color: #6200f0;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding: 0 5px;
        
+       
+    }
+    .view-and-button button p{
+        margin-left: 5px;
     }
     .view-and-button button:hover{
         background-color: #5205C1;

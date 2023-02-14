@@ -29,6 +29,7 @@ import '../Sign-in/Signin.css'
     const[loading, setLoading]=useState(true)
     const[logtext,setLogtext]=useState({})
     const[butnstyle,setButnstyle]=useState({})
+    const[photoval,setPhotoval]=useState("")
     const history=useHistory()
 
 
@@ -112,19 +113,21 @@ import '../Sign-in/Signin.css'
   
 
         //customer-details
+        
+       
       
         if((JSON.parse(localStorage.getItem('customerDetail')))!=null){
-            localStorage.setItem('customerDetail', JSON.stringify({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:"",phone:""}));
+            localStorage.setItem('customerDetail', JSON.stringify({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:res.data.data.photo,phone:res.data.data.phone,userId:res.data.data.userId}));
         }
-        else{localStorage.setItem('customerDetail', JSON.stringify({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:"",phone:""}));}
+        else{localStorage.setItem('customerDetail', JSON.stringify({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:res.data.data.photo,phone:res.data.data.phone,userId:res.data.data.userId}));}
         
         setAuthHeader()
-          customerdetails({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:"",phone:""})
+          customerdetails({firstName:res.data.data.firstName,email:res.data.data.email,lastName:res.data.data.lastName,photo:res.data.data.photo,phone:res.data.data.phone,userId:res.data.data.userId})
           console.log(customer)
           history.push("/Dashboard")
       }
       else{
-          alert('invalid input')
+        //   alert('invalid input')
       }
 
     
@@ -165,7 +168,7 @@ import '../Sign-in/Signin.css'
             <div className="inner-signin">
             <div className="textandimage">
                 <div className="textandimage-logo">
-                    <FlexLogo style={{width:"108px",height:"42px"}}/>
+                    <FlexLogo style={{width:"108px",height:"42px"}} onClick={(()=>{history.push("/")})}/>
                    
                     </div>
                 <div className="">

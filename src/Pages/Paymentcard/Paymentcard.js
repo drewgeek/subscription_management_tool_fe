@@ -32,7 +32,7 @@ function Paymentcard({presentcolor,headercolor}){
      },[])
      function Continue(){
          if(chosen=="flutter"){
-           alert('flutter')
+        //    alert('flutter')
          }
      }
 return(
@@ -76,8 +76,8 @@ return(
                     </div>
                     <div className="payment-select-cards-buttons">
                             <button onClick={history.goBack} className="cancel-payment">CANCEL</button>
-                            <button className="proceed-payment" style={chosen!="" ? {display:"none"}:{display:"inline-block"}} onClick={Continue}>CONTINUE</button>
-                            <div className="flutterbutn" style={chosen=="" ? {display:"none"}:{display:"inline-block"}}><Flutterwavelink id="flutterbutn"  className="flutterbutn" /></div>
+                            <button className="proceed-payment" style={chosen==="flutter" ? {display:"none"}:{display:"inline-block"}} onClick={Continue}>CONTINUE</button>
+                            <div className="flutterbutn" style={chosen!=="flutter" ?  {display:"none"} :{display:"inline-block"}}><Flutterwavelink id="flutterbutn"  className="flutterbutn" /></div>
                         </div>
                         
                        
